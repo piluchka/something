@@ -1,0 +1,52 @@
+// Reset
+@import "_reset.scss";
+// Fonts
+@import "_fonts.scss";
+// Icons
+@import "_icons.scss";
+// Functions
+@import "_functions.scss";
+// Color palette
+@import "_palette.scss";
+
+// Common
+@import "_common.scss";
+// Header
+@import "_header.scss";
+// Footer
+@import "_footer.scss";
+
+// wrapper
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+  min-height: 100svh;
+
+  > main {
+    flex-grow: 1;
+  }
+}
+// body
+body {
+  font-family: "Roboto", sans-serif;
+
+  &.menu-opened {
+    overflow: hidden;
+  }
+}
+
+// container
+[class*="__container"] {
+  margin: 0 auto;
+  max-width: toREM(1310);
+  padding: toREM(0) toREM(15);
+}
+
+// Pages
+// media
+@import "_media.scss";
+// article
+@import "_article.scss";
+@import "_project.scss";
+@import "_contact.scss";

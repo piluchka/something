@@ -1,0 +1,825 @@
+@use "sass:math";
+
+@import "_general-imports.scss";
+
+// Page
+
+// ! Поменять марджины при адаптиве
+// ! Оптимизация марджинов
+
+.page {
+  &__hero,
+  &__care,
+  &__projects,
+  &__volunteer,
+  &__news,
+  &__analytics,
+  &__events {
+    margin-bottom: toREM(96);
+
+    @media (max-width: toEM(768.98)) {
+      margin-bottom: toREM(60);
+    }
+  }
+  &__about {
+    margin-bottom: toREM(74);
+  }
+  &__supporters {
+    margin-bottom: toREM(65);
+    @media (max-width: toEM(768.98)) {
+      margin-bottom: toREM(40);
+    }
+  }
+}
+
+// hero
+.hero {
+  position: relative;
+  // padding: toREM(62) 0 0 0;
+  margin-top: toREM(67);
+
+  @media (max-width: toEM(524)) {
+    padding: toREM(50) 0 0 0;
+  }
+  @media (max-width: toEM(375)) {
+    padding: toREM(30) 0 0 0;
+  }
+
+  &__container {
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    z-index: -1;
+  }
+
+  &__inner {
+    padding: toREM(128) 0 toREM(64) 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    row-gap: toREM(192);
+
+    @media (max-width: toEM(673)) {
+      row-gap: toREM(100);
+    }
+    @media (max-width: toEM(425)) {
+      row-gap: toREM(65);
+    }
+  }
+
+  &__content {
+    max-width: toREM(640);
+  }
+
+  &__title {
+    font-size: toREM(64);
+
+    &:not(:last-child) {
+      margin-bottom: toEM(48, 64);
+    }
+
+    @media (max-width: toEM(524)) {
+      font-size: toREM(56);
+    }
+    @media (max-width: toEM(375)) {
+      font-size: toREM(46);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: toREM(64);
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: toEM(425)) {
+      flex-direction: column;
+      align-items: start;
+      gap: toREM(40);
+    }
+  }
+
+  &__button {
+    @media (max-width: toEM(425)) {
+      font-size: toREM(20);
+    }
+  }
+
+  &__play-button {
+    display: flex;
+    align-items: center;
+    gap: toREM(8);
+
+    color: #fff;
+    text-align: right;
+    font-size: toREM(16);
+    font-weight: 500;
+    line-height: 1.2;
+
+    position: relative;
+
+    @media (max-width: toEM(425)) {
+      font-size: toREM(20);
+      padding-left: toREM(24);
+    }
+
+    &::before {
+      background-color: #fff;
+      border-radius: 50%;
+      transform: translate(0, -5%);
+
+      font-size: toREM(24);
+
+      transition: all 0.3s;
+    }
+
+    &::after {
+      content: "";
+      width: 0;
+      height: toREM(2);
+      background-color: #fff;
+      position: absolute;
+      top: 100%;
+      left: toREM(8);
+
+      transition: all 0.3s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          width: calc(100% - 8px);
+        }
+        &::before {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100svw;
+    height: 100svh;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all 0.5s;
+
+    z-index: 20;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &._play {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__close-button {
+    position: absolute;
+    top: toREM(100);
+    right: toREM(50);
+
+    width: toREM(80);
+    height: toREM(80);
+
+    background-color: #00000034;
+    border-radius: 50%;
+
+    &::before {
+      content: "";
+      width: 80%;
+      height: toREM(4);
+      background-color: #fff;
+      transform: rotate(-45deg);
+
+      position: absolute;
+      top: 50%;
+      left: 10%;
+
+      border-radius: toREM(50);
+    }
+    &::after {
+      content: "";
+      width: 80%;
+      height: toREM(4);
+      background-color: #fff;
+      transform: rotate(45deg);
+
+      position: absolute;
+      top: 50%;
+      left: 10%;
+
+      border-radius: toREM(50);
+    }
+  }
+}
+
+.footer-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: toREM(24);
+
+  flex-wrap: wrap;
+
+  @media (max-width: toEM(600)) {
+    flex-direction: column;
+  }
+  @media (max-width: toEM(425)) {
+    gap: toREM(10);
+  }
+
+  &__text {
+    color: #fff;
+    text-align: right;
+    font-size: toREM(18);
+    font-weight: 500;
+    line-height: 1.2;
+
+    flex-grow: 0;
+  }
+
+  &__line {
+    flex-grow: 1;
+    height: toREM(1);
+    background-color: #fff;
+
+    @media (max-width: toEM(600)) {
+      width: 100%;
+    }
+  }
+}
+
+// About
+
+.about {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    column-gap: toREM(20);
+    row-gap: toREM(40);
+
+    @media (max-width: toEM(800)) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    flex: 0 1 toREM(704);
+    padding-left: toREM(96);
+
+    @media (max-width: toEM(800)) {
+      flex-basis: auto;
+    }
+    @media (max-width: toEM(768)) {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toEM(32, 48);
+    }
+
+    @media (max-width: toEM(524)) {
+      font-size: toREM(42);
+    }
+    @media (max-width: toEM(375)) {
+      font-size: toREM(38);
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: toREM(48);
+    }
+  }
+
+  // ! Чекнуть потом адаптивность видео
+  // ! Из-за flex-basis что-то там не то с видосом, его обрезает при плее, и он меняет свою высоту и ширину на куб
+  &__video {
+    aspect-ratio: 480 / 578;
+    flex: 0 1 toREM(480);
+
+    position: relative;
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+    @media (max-width: toEM(425)) {
+      flex-basis: toREM(350);
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      transition: all 0.3s;
+    }
+  }
+
+  // ! Проверить, что тут происходит
+  // ! Есть проблема с позиционированием кнопки
+  // ! При ховере улетает, пришлось его кинуть на бифор
+  &__play-button {
+    font-size: toREM(64);
+
+    width: toREM(64);
+    height: toREM(64);
+
+    background-color: #fff;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    gap: toREM(8);
+
+    transition: all 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          transform: scale(0.9);
+        }
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 99%;
+
+      transition: all 0.3s;
+    }
+
+    ._play & {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+  &__close-button {
+    position: absolute;
+    top: toREM(20);
+    right: toREM(20);
+
+    width: toREM(50);
+    height: toREM(50);
+
+    background-color: #00000034;
+    border-radius: 50%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.5s;
+    &::before {
+      content: "";
+      width: 80%;
+      height: toREM(3);
+      background-color: #fff;
+      transform: rotate(-45deg);
+
+      position: absolute;
+      top: 50%;
+      left: 10%;
+
+      border-radius: toREM(50);
+    }
+    &::after {
+      content: "";
+      width: 80%;
+      height: toREM(3);
+      background-color: #fff;
+      transform: rotate(45deg);
+
+      position: absolute;
+      top: 50%;
+      left: 10%;
+
+      border-radius: toREM(50);
+    }
+
+    ._play & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// Supporters
+
+.supporters {
+  &__container {
+  }
+
+  &__title {
+    font-size: toREM(16);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: toREM(2);
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: toREM(33.5);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: toREM(15);
+    @media (max-width: toEM(568)) {
+      justify-content: space-around;
+      column-gap: toREM(20);
+    }
+  }
+  &__slide {
+    flex-basis: toREM(160);
+    max-width: toREM(160);
+
+    @media (max-width: toEM(768.98)) {
+      max-width: toREM(110);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(137px * 6);
+  }
+}
+
+// Care
+.care {
+  background-color: $ultraLightGreen;
+  padding: toREM(96) 0;
+
+  @media (max-width: toEM(768.98)) {
+    padding: toREM(50) 0;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: toREM(20);
+    row-gap: toREM(40);
+    @media (max-width: toEM(800)) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    padding-left: toREM(96);
+    flex: 0 1 toREM(704);
+
+    @media (max-width: toEM(800)) {
+      flex: 0 1 auto;
+    }
+    @media (max-width: toEM(768)) {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toEM(16, 48);
+    }
+
+    @media (max-width: toEM(524)) {
+      font-size: toREM(42);
+    }
+    @media (max-width: toEM(375)) {
+      font-size: toREM(38);
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__list {
+    border-left: toREM(1) solid $grey;
+    padding-left: toREM(24);
+  }
+
+  &__img {
+    aspect-ratio: 480 / 658;
+    border-radius: toREM(12);
+    overflow: hidden;
+    flex-basis: toREM(480);
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: toEM(425)) {
+      flex-basis: auto;
+    }
+  }
+}
+
+.list-care {
+  &__item {
+    display: flex;
+    gap: toREM(24);
+
+    &:not(:last-child) {
+      margin-bottom: toREM(24);
+    }
+
+    &::before {
+      width: toREM(28);
+      height: toREM(28);
+      background-color: $deepGreen;
+
+      flex: 0 0 toREM(28);
+
+      border-radius: toREM(7);
+      text-align: center;
+      padding-top: toREM(5);
+    }
+  }
+
+  &__title {
+    font-size: toREM(24);
+
+    &:not(:last-child) {
+      margin-bottom: toEM(14, 24);
+    }
+    @media (max-width: toEM(524)) {
+      font-size: toREM(22);
+    }
+  }
+
+  &__text {
+    max-width: toREM(384);
+    &:not(:last-child) {
+      margin-bottom: toREM(10);
+    }
+  }
+
+  &__content {
+  }
+}
+
+// Projects
+.projects {
+  &__container {
+  }
+
+  &__head {
+    padding-left: toREM(96);
+    margin-bottom: toREM(65);
+
+    @media (max-width: toEM(768)) {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__title {
+    max-width: toREM(640);
+    &:not(:last-child) {
+      margin-bottom: toEM(65, 48);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: toREM(24);
+    row-gap: toREM(24);
+    justify-items: end;
+    align-content: center;
+
+    @media (min-width: toEM(425)) {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+
+  &__card {
+  }
+}
+
+// news
+
+.news {
+  &__container {
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toEM(48, 40);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: toREM(24);
+  }
+}
+
+// Analytics
+.analytics {
+  background-color: $black;
+  padding: toREM(142) toREM(0);
+
+  @media (max-width: toEM(850)) {
+    padding: toREM(100) toREM(0);
+  }
+  @media (max-width: toEM(425)) {
+    padding: toREM(60) toREM(0);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: toREM(20);
+
+    @media (max-width: toEM(850)) {
+      flex-direction: column;
+      row-gap: toREM(50);
+    }
+  }
+
+  &__content {
+    flex: 0 1 toREM(611);
+    @media (max-width: toEM(850)) {
+      flex-basis: auto;
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toREM(16);
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__colors {
+  }
+
+  &__diagram {
+    position: relative;
+    flex: 0 0 toREM(375);
+    height: toREM(375);
+    width: toREM(375);
+    border-radius: 50%;
+    background: conic-gradient($lightGreen 0 40%, #ac94f1 40% 75%, #fff0ca 75% 85%, #f9cf64 85% 95%, #f38fbf 95% 100%);
+
+    @media (max-width: toEM(425)) {
+      flex: 0 0 toREM(280);
+      height: toREM(280);
+      width: toREM(280);
+    }
+
+    &::before {
+      content: "";
+
+      color: #fff;
+      font-size: toREM(24);
+      width: toREM(200);
+      height: toREM(200);
+      background: url("../img/logo-white.svg") no-repeat center / 93px 22px, $black;
+      border-radius: 50%;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @media (max-width: toEM(425)) {
+        width: toREM(150);
+        height: toREM(150);
+      }
+    }
+  }
+}
+.colors-analytics {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: toREM(24);
+  row-gap: toREM(10);
+
+  @media (max-width: toEM(850)) {
+    column-gap: toREM(15);
+  }
+  &__item {
+    color: #fff;
+    font-size: toREM(16);
+    font-weight: 500;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: toREM(8);
+  }
+
+  &__color {
+    width: toREM(16);
+    height: toREM(16);
+    border-radius: toREM(4);
+
+    flex: 0 0 toREM(16);
+
+    &--green {
+      background-color: $lightGreen;
+    }
+
+    &--violet {
+      background-color: #ac94f1;
+    }
+
+    &--light-yellow {
+      background-color: #fff0ca;
+    }
+
+    &--yellow {
+      background-color: #f9cf64;
+    }
+
+    &--pink {
+      background-color: #f9cf64;
+    }
+  }
+}
+
+// events
+.events {
+  &__container {
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toREM(48);
+    }
+  }
+
+  &__cards {
+  }
+}

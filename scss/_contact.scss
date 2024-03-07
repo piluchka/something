@@ -1,0 +1,117 @@
+.page-contact {
+  &__contact {
+    margin-bottom: toREM(96);
+  }
+}
+.contact {
+  background-color: $lightBlue;
+  padding-top: toREM(163);
+
+  padding-bottom: toREM(96);
+
+  @media (max-width: toEM(991.98)) {
+    padding-top: toREM(110);
+    padding-bottom: toREM(60);
+  }
+
+  &__container {
+    display: flex;
+    column-gap: toREM(96);
+
+    @media (max-width: toEM(768.98)) {
+      flex-wrap: wrap;
+      row-gap: toREM(40);
+    }
+  }
+
+  &__content {
+    padding-left: toREM(96);
+    flex: 0 1 toREM(576);
+
+    @media (max-width: toEM(768)) {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitile {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toREM(16);
+    }
+  }
+
+  &__text {
+  }
+
+  &__info {
+  }
+}
+
+.info-contact {
+  flex: 0 1 toREM(300);
+  display: flex;
+  gap: toREM(32);
+  flex-direction: column;
+
+  &__item {
+  }
+
+  &__title {
+    color: $deepBlue;
+    font-size: toREM(24);
+    font-weight: 700;
+    line-height: 1.6;
+    &:not(:last-child) {
+      margin-bottom: toREM(10);
+    }
+  }
+
+  &__inner {
+    color: $deepGrey;
+
+    font-size: toREM(16);
+    line-height: 1.6;
+
+    a {
+      color: $deepBlue;
+      font-size: toREM(16);
+      line-height: 1.75;
+
+      transition: all 0.3s;
+      @media (any-hover: hover) {
+        &:hover {
+          color: $deepGrey;
+        }
+      }
+    }
+  }
+
+  &__tel {
+    &:not(:last-child) {
+      margin-right: toREM(32);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: toREM(20);
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    font-size: toREM(20);
+    color: $deepBlue;
+    transition: all 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $deepGrey;
+      }
+    }
+  }
+}

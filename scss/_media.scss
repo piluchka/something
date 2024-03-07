@@ -1,0 +1,155 @@
+.page-media {
+  &__top {
+    margin-bottom: toREM(96);
+  }
+  &__news {
+    margin-bottom: toREM(96);
+  }
+  &__events {
+    margin-bottom: toREM(96);
+  }
+}
+
+// Top
+.top {
+  padding-top: toREM(163);
+  padding-bottom: toREM(96);
+  background-color: $ultraLightGreen;
+
+  @media (max-width: toEM(991.98)) {
+    padding-top: toREM(130);
+  }
+  @media (max-width: toEM(375)) {
+    padding-top: toREM(110);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    column-gap: toREM(20);
+    row-gap: toREM(40);
+
+    @media (max-width: toEM(991.98)) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    padding-left: toREM(96);
+    flex: 0 1 toREM(592);
+
+    @media (max-width: toEM(991.98)) {
+      flex-basis: auto;
+    }
+    @media (max-width: toEM(768)) {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toREM(16);
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__button {
+    &:not(:last-child) {
+      margin-bottom: toREM(16);
+    }
+  }
+
+  &__news {
+  }
+}
+
+.news-top {
+  flex: 0 1 toREM(592);
+  @media (max-width: toEM(991.98)) {
+    flex-basis: auto;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: toREM(24);
+
+    padding: toREM(24);
+    background-color: #fff;
+    border-radius: toREM(12);
+
+    @media (max-width: toEM(480)) {
+      gap: toREM(30);
+    }
+  }
+
+  &__card {
+    &.article-card--row {
+      @media (max-width: toEM(480)) {
+        flex-direction: column;
+        align-items: center;
+        gap: toREM(10);
+      }
+    }
+    .article-card__img {
+      @media (max-width: toEM(480)) {
+        max-width: 100%;
+        height: 100%;
+        flex-shrink: 1;
+
+        img {
+          aspect-ratio: 192 / 160;
+        }
+      }
+    }
+  }
+}
+
+// News
+.page-media {
+  &__news {
+  }
+}
+.news {
+  &__container {
+    .page-media & {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    .page-media & {
+      text-align: center;
+      &:not(:last-child) {
+        margin-bottom: toREM(16);
+      }
+    }
+  }
+
+  &__text {
+    .page-media & {
+      text-align: center;
+      max-width: toREM(450);
+      align-self: center;
+      &:not(:last-child) {
+        margin-bottom: toREM(48);
+      }
+    }
+  }
+
+  &__cards {
+  }
+}

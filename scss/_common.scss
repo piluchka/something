@@ -1,0 +1,482 @@
+// Button
+.button {
+  padding: toREM(16) toREM(32);
+  background-color: $deepGreen;
+  color: #fff;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: start;
+  align-self: start;
+
+  font-size: toREM(16);
+  font-weight: 500;
+  line-height: 1.2;
+
+  border-radius: 4px;
+
+  transition: all 0.5s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #74aa76;
+    }
+  }
+
+  &--white {
+    color: $deepBlue;
+    background-color: #fff;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #d4e6d5;
+      }
+    }
+  }
+
+  &--blue {
+    background-color: $deepBlue;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #646d92;
+      }
+    }
+  }
+}
+
+// Title
+.title {
+  font-size: toREM(48);
+  font-weight: 700;
+  line-height: 1.2;
+  color: $deepBlue;
+
+  @media (max-width: toEM(524)) {
+    font-size: toREM(42);
+  }
+  @media (max-width: toEM(375)) {
+    font-size: toREM(38);
+  }
+
+  &--white {
+    color: #fff;
+  }
+}
+
+// Secondary title
+.secondary-title {
+  color: $deepBlue;
+  font-size: toREM(40);
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: toREM(24);
+
+  @media (max-width: toEM(524)) {
+    font-size: toREM(36);
+  }
+  @media (max-width: 375px) {
+    font-size: toREM(30);
+  }
+
+  &::after {
+    content: "";
+    height: toREM(1);
+    background-color: $grey;
+    min-width: toREM(50);
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  &--lh {
+    line-height: 1.5;
+  }
+}
+
+// Subtitle
+.subtitle {
+  position: relative;
+  color: $deepBlue;
+  font-size: toREM(16);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: toREM(2);
+  text-transform: uppercase;
+
+  @media (max-width: toEM(768)) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: toREM(24);
+    &::after {
+      content: "";
+      height: toREM(2);
+      background-color: $deepBlue;
+      min-width: toREM(50);
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+    &::before {
+      display: none;
+    }
+  }
+
+  &::before {
+    content: "";
+    width: toREM(72);
+    height: toREM(2);
+    background-color: $deepBlue;
+    position: absolute;
+    top: 50%;
+    left: toREM(-96);
+    transform: translate(0, -50%);
+  }
+
+  &--clear {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// Text
+.text {
+  color: $deepGrey;
+
+  font-size: toREM(16);
+  line-height: 1.6;
+
+  &--white {
+    color: #fff;
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: toREM(35);
+    }
+
+    @media (max-width: toEM(425)) {
+      &:not(:last-child) {
+        margin-bottom: toREM(28);
+      }
+    }
+  }
+}
+
+// Great card
+.great-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: toREM(12);
+
+  position: relative;
+  padding: toREM(93) toREM(48) toREM(93) toREM(48);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  row-gap: toREM(32);
+
+  z-index: 3;
+
+  @media (max-width: toEM(998.98)) {
+    padding: toREM(73) toREM(28) toREM(73) toREM(28);
+  }
+  @media (max-width: toEM(425)) {
+    padding: toREM(50) toREM(15) toREM(50) toREM(15);
+  }
+
+  &--small {
+    text-align: left;
+    justify-content: flex-start;
+    padding: toREM(80) toREM(48) toREM(48) toREM(48);
+
+    @media (max-width: toEM(998.98)) {
+      padding: toREM(63) toREM(28) toREM(31) toREM(28);
+    }
+    @media (max-width: toEM(425)) {
+      padding: toREM(40) toREM(15) toREM(18) toREM(15);
+    }
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $black;
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    z-index: -1;
+  }
+
+  &__content {
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+    P {
+      &:not(:last-child) {
+        margin-bottom: toREM(10);
+      }
+    }
+  }
+
+  &__title {
+    max-width: toREM(631);
+    position: relative;
+    z-index: 2;
+    @media (max-width: toEM(634)) {
+      font-size: toREM(42);
+    }
+    @media (max-width: toEM(445)) {
+      font-size: toREM(38);
+    }
+
+    .great-card--small & {
+      font-size: toREM(28);
+      &:not(:last-child) {
+        margin-bottom: toREM(16);
+      }
+    }
+    a {
+      transition: all 0.3s;
+      @media (any-hover: hover) {
+        &:hover {
+          color: $lightGreen;
+        }
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: toREM(32);
+    row-gap: toREM(20);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Article card
+.article-card {
+  display: flex;
+  flex-direction: column;
+  gap: toREM(16);
+
+  &--row {
+    flex-direction: row;
+    gap: toREM(24);
+    align-items: start;
+  }
+
+  &__img {
+    aspect-ratio: 302 / 192;
+    overflow: hidden;
+    border-radius: toREM(8);
+
+    .article-card--row & {
+      flex-shrink: 0;
+      aspect-ratio: 192 / 160;
+      max-width: toREM(192);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: toREM(8);
+
+      transition: all 0.3s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__title {
+    transition: all 0.3s;
+    font-size: toREM(20);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $deepGrey;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: toEM(8, 20);
+    }
+  }
+
+  &__text {
+    font-size: toREM(16);
+    &:not(:last-child) {
+      margin-bottom: toEM(8, 16);
+    }
+  }
+}
+
+// Event cards
+.cards-events {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: toREM(24);
+
+  display: grid;
+
+  gap: toREM(24);
+
+  @media (min-width: toEM(500)) {
+    grid-template-columns: repeat(auto-fit, minmax(470px, 1fr));
+  }
+
+  &__item {
+    padding: toREM(40) toREM(48);
+    border-radius: toREM(8);
+    background-color: $lightGreen;
+    color: $deepBlue;
+
+    display: flex;
+    gap: toREM(24);
+    justify-content: space-between;
+
+    @media (max-width: toEM(578)) {
+      padding: toREM(20) toREM(28);
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__date {
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  &__number {
+    font-size: toREM(48);
+  }
+
+  &__month {
+    font-size: toREM(16);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    @media (max-width: toEM(578)) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    font-size: toREM(16);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    gap: toREM(23);
+
+    &:not(:last-child) {
+      margin-bottom: toREM(8);
+    }
+
+    @media (max-width: toEM(578)) {
+      font-size: toREM(14);
+    }
+
+    &::after {
+      content: "";
+      height: toREM(2);
+      background-color: $deepBlue;
+      width: toREM(44);
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+  }
+
+  &__title {
+    font-size: toREM(28);
+
+    @media (max-width: toEM(578)) {
+      font-size: toREM(24);
+    }
+  }
+
+  &__link-title {
+    transition: color 0.3s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $deepGrey;
+      }
+    }
+  }
+
+  &__arrow {
+    background-color: #fff;
+    border-radius: toREM(8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: toREM(15) 0;
+    align-self: stretch;
+    flex-grow: 1;
+    @media (min-width: toEM(578)) {
+      align-self: center;
+      width: toREM(56);
+      height: toREM(56);
+      border-radius: 50%;
+      flex: 0 0 toREM(56);
+      padding: 0;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          transform: translate(20%, 0);
+        }
+      }
+    }
+    &::before {
+      transition: all 0.3s;
+    }
+  }
+}

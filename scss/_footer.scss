@@ -1,0 +1,137 @@
+.footer {
+  background-color: $black;
+  padding: toREM(96) 0;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: toREM(30);
+    row-gap: toREM(50);
+  }
+
+  &__logo {
+    max-width: toREM(110);
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__menu {
+  }
+
+  &__form {
+  }
+}
+.menu-footer {
+  display: flex;
+  gap: toREM(20);
+  color: #fff;
+  line-height: 1.6;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  flex-wrap: wrap;
+
+  &__inner {
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: toREM(16);
+
+    &:not(:last-child) {
+      margin-bottom: toREM(24);
+    }
+  }
+
+  &__list {
+    font-size: toREM(14);
+    font-weight: 400;
+
+    display: flex;
+    gap: toREM(24);
+    flex-direction: column;
+  }
+
+  &__item {
+    opacity: 0.78;
+    transition: all 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__link {
+  }
+}
+.form-footer {
+  flex-basis: toREM(544);
+  &__title {
+    font-size: toREM(40);
+    max-width: toREM(440);
+    &:not(:last-child) {
+      margin-bottom: toEM(32, 40);
+    }
+
+    @media (max-width: toEM(524)) {
+      font-size: toREM(36);
+    }
+    @media (max-width: toEM(375)) {
+      font-size: toREM(32);
+    }
+  }
+
+  &__body {
+    display: flex;
+
+    @media (max-width: toEM(375)) {
+      flex-direction: column;
+      gap: toREM(10);
+    }
+  }
+
+  &__input {
+    flex-grow: 1;
+    border: toREM(1) solid rgba(235, 240, 249, 0.3);
+    border-right: none;
+    @media (max-width: toEM(375)) {
+      border: toREM(1) solid rgba(235, 240, 249, 0.3);
+    }
+    input {
+      color: #fff;
+      width: 100%;
+      height: 100%;
+      background-color: $black;
+      padding: toREM(22) toREM(23);
+
+      &:focus {
+        outline: toREM(1) solid $deepGreen;
+        outline-offset: toREM(-1);
+      }
+
+      &::placeholder {
+        color: rgba(235, 240, 249, 0.3);
+        font-size: toREM(16);
+        font-weight: 400;
+        line-height: 1.2;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__button {
+    padding: toREM(24) toREM(32);
+
+    color: $deepBlue;
+    font-size: toREM(16);
+
+    @media (max-width: toEM(375)) {
+      text-align: center;
+      align-self: stretch;
+      padding: toREM(16) 0;
+    }
+  }
+}
