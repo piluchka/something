@@ -1,6 +1,11 @@
 .page-contact {
-  &__contact {
+  &__contact,
+  &__form {
     margin-bottom: toREM(96);
+
+    @media (max-width: toEM(768.98)) {
+      margin-bottom: toREM(60);
+    }
   }
 }
 .contact {
@@ -113,5 +118,132 @@
         color: $deepGrey;
       }
     }
+  }
+}
+
+// Form
+
+.form-contact {
+  &__inner {
+    max-width: toREM(798);
+    margin: 0 auto;
+    padding: toREM(0) toREM(15);
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: toREM(32);
+    margin: 0 toREM(-16);
+
+    margin-bottom: toREM(55);
+
+    @media (max-width: toEM(425)) {
+      flex-direction: column;
+      row-gap: toREM(20);
+      margin-bottom: toREM(35);
+    }
+  }
+
+  &__input {
+    flex: 0 1 50%;
+    padding: 0 toREM(16);
+    @media (max-width: toEM(425)) {
+      flex-basis: 100%;
+    }
+
+    label {
+      color: $deepBlue;
+      font-size: toREM(12);
+      font-weight: 700;
+      line-height: 1.6;
+      opacity: 0.6;
+    }
+
+    input {
+      width: 100%;
+      height: 100%;
+      max-height: toREM(31);
+
+      color: $deepBlue;
+      font-size: toREM(16);
+      line-height: 1.6;
+      border-bottom: toREM(1) solid $lightBlue;
+      padding: toREM(4) toREM(0);
+
+      &:focus {
+        outline: 0;
+        border-bottom: toREM(1) solid $deepGreen;
+      }
+
+      @media (max-width: toEM(425)) {
+        font-size: toREM(14);
+      }
+    }
+
+    &--textarea {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: toREM(4);
+
+      &:not(:last-child) {
+        margin-bottom: toREM(32);
+      }
+
+      @media (max-width: toEM(425)) {
+        &:not(:last-child) {
+          margin-bottom: toREM(25);
+        }
+      }
+
+      textarea {
+        padding: toREM(20);
+        width: 100%;
+        height: 100%;
+        min-height: toREM(156);
+        border: toREM(1) solid $lightBlue;
+        border-radius: toREM(4);
+        resize: none;
+
+        @media (max-width: toEM(425)) {
+          font-size: toREM(14);
+        }
+
+        &:focus {
+          outline: 0;
+          border: toREM(1) solid $deepGreen;
+        }
+
+        &::placeholder {
+          color: $deepBlue;
+          font-size: toREM(16);
+          opacity: 0.3;
+
+          @media (max-width: toEM(425)) {
+            font-size: toREM(14);
+          }
+        }
+      }
+    }
+  }
+
+  &__button {
+    align-self: center;
+  }
+}
+
+// Map
+.map {
+  width: 100%;
+  min-height: toREM(448);
+
+  transform: translate(0, toREM(3));
+
+  @media (max-width: toEM(425)) {
+    max-height: toREM(300);
   }
 }

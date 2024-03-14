@@ -350,10 +350,6 @@
 
 // Event cards
 .cards-events {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: toREM(24);
-
   display: grid;
 
   gap: toREM(24);
@@ -478,5 +474,67 @@
     &::before {
       transition: all 0.3s;
     }
+  }
+}
+
+// Tabs
+.tabs {
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: toREM(10);
+
+    &:not(:last-child) {
+      margin-bottom: toREM(24);
+    }
+  }
+
+  &__item {
+    padding: toREM(8) toREM(24);
+    color: $deepGrey;
+    font-size: toREM(16);
+    font-weight: 500;
+    line-height: 1.6;
+    border-bottom: toREM(1) solid $grey;
+
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 0;
+      height: toREM(2);
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      background-color: $deepGreen;
+
+      transition: all 0.3s;
+    }
+
+    &._active-tab {
+      color: $black;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: toREM(2);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: $deepGreen;
+      }
+    }
+  }
+
+  &__button {
+  }
+
+  &__body {
+  }
+
+  &__element {
+  }
+
+  &__text {
   }
 }

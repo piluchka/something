@@ -36,6 +36,22 @@ function clickHandler(e) {
     const videoContainer = document.querySelector(".about__video")
     closeVideo(videoContainer)
   }
+  if (target.classList.contains("about-us__play-button")) {
+    const videoContainer = document.querySelector(".about-us__video")
+    if (window.innerWidth <= 425) {
+      videoContainer.firstElementChild.setAttribute("controls", "")
+    }
+    openVideo(videoContainer)
+  }
+  if (target.classList.contains("about-us__close-button")) {
+    const videoContainer = document.querySelector(".about-us__video")
+    closeVideo(videoContainer)
+  }
+  if (target.closest("[data-tabs-button]")) {
+    const currEl = target.closest("[data-tabs-button]")
+    setTab(currEl)
+    // console.log(currEl)
+  }
 }
 // scroll handler(all scroll functions)
 function scrollHandler(e) {
@@ -109,3 +125,21 @@ if (document.querySelector(".logo-swiper")) {
 }
 
 // ------------------------------------------
+// Tabs
+function setTab(tabElement) {
+  const tab = tabElement.closest("[data-tabs]")
+
+  const tabsButtons = Array.from(tab.querySelectorAll("[data-tabs-button]"))
+  const currentButtonIndex = tabsButtons.indexOf(tabElement)
+
+  const activeTabButton = tab.querySelector("[data-tabs-button]._active-tab")
+  activeTabButton.classList.remove("_active-tab")
+  tabElement.classList.add("_active-tab")
+
+  const tabElements = Array.from(tab.querySelectorAll("[data-tabs-element]"))
+  tabElements.forEach((tabEl) => {
+    tabEl.hidden = true
+  })
+
+  tabElements[currentButtonIndex].hidden = false
+}

@@ -1,0 +1,247 @@
+.page-do {
+  &__main-do,
+  &__environment,
+  &__projects,
+  &__volunteer,
+  &__news,
+  &__events {
+    margin-bottom: toREM(96);
+
+    @media (max-width: toEM(768.98)) {
+      margin-bottom: toREM(60);
+    }
+  }
+}
+.main-do {
+  padding-top: toREM(163);
+
+  @media (max-width: toEM(991.98)) {
+    padding-top: toREM(130);
+  }
+  @media (max-width: toEM(375)) {
+    padding-top: toREM(110);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    gap: toREM(20);
+
+    @media (max-width: toEM(991.98)) {
+      flex-direction: column;
+      align-items: center;
+      row-gap: toREM(50);
+    }
+  }
+
+  &__content {
+    flex: 0 1 toREM(690);
+    padding-left: toREM(96);
+
+    @media (max-width: toEM(991.98)) {
+      flex-basis: auto;
+    }
+    @media (max-width: toEM(768)) {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: toREM(56);
+    &:not(:last-child) {
+      margin-bottom: toEM(32, 56);
+    }
+
+    @media (max-width: toEM(524)) {
+      font-size: toREM(48);
+    }
+    @media (max-width: toEM(375)) {
+      font-size: toREM(44);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toEM(34, 48);
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: toREM(15);
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+    max-width: toREM(480);
+    flex: 0 1 toREM(480);
+    border-radius: toREM(12);
+
+    @media (max-width: toEM(991.98)) {
+      flex-basis: auto;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// Environment
+.environment-do {
+  padding: toREM(96) 0;
+  background-color: $ultraLightGreen;
+
+  @media (max-width: toEM(768.98)) {
+    padding: toREM(50) 0;
+  }
+
+  &__container {
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: toEM(64, 48);
+    }
+  }
+
+  &__list {
+  }
+
+  &__cover {
+    margin: 0 toREM(-32);
+
+    @media (max-width: toEM(768)) {
+      margin: 0 toREM(-16);
+    }
+  }
+}
+
+// List
+.list-environment {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: toREM(48);
+
+  &__item {
+    flex: 0 1 33.333%;
+    padding: 0 toREM(32);
+    display: flex;
+    gap: toREM(24);
+
+    @media (max-width: toEM(900)) {
+      flex: 0 1 50%;
+    }
+    @media (max-width: toEM(768)) {
+      padding: 0 toREM(16);
+    }
+    @media (max-width: toEM(564)) {
+      flex: 0 1 auto;
+    }
+
+    &::before {
+      width: toREM(28);
+      height: toREM(28);
+      background-color: $deepGreen;
+      border-radius: toREM(5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex: 0 0 toREM(28);
+    }
+  }
+
+  &__title {
+    color: $deepBlue;
+    font-size: toREM(24);
+    font-weight: 700;
+    line-height: 1.2;
+
+    &:not(:last-child) {
+      margin-bottom: toREM(8);
+    }
+
+    @media (max-width: toEM(564)) {
+      font-size: toREM(22);
+    }
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: toREM(5);
+    }
+  }
+}
+
+.page-do {
+}
+.projects-do {
+  &__container {
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: toREM(16);
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: toEM(64);
+    }
+
+    @media (max-width: toEM(524)) {
+      &:not(:last-child) {
+        margin-bottom: toEM(40);
+      }
+    }
+  }
+
+  &__subtitle {
+    color: $deepBlue;
+    font-size: toREM(16);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: toREM(2);
+    text-transform: uppercase;
+  }
+
+  &__title {
+    max-width: toREM(700);
+    text-align: center;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: toREM(24);
+    row-gap: toREM(24);
+    justify-items: end;
+    align-content: center;
+
+    @media (min-width: toEM(425)) {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+
+  &__card {
+  }
+}
+
+.great-card {
+  &__img {
+  }
+
+  &__title {
+  }
+
+  &__text {
+  }
+
+  &__button {
+  }
+}

@@ -44,9 +44,11 @@ body {
 }
 
 // Pages
-// media
 @import "_media.scss";
-// article
 @import "_article.scss";
 @import "_project.scss";
 @import "_contact.scss";
+@import "_what-we-do.scss";
+@import "_event.scss";
+@import "_about-us.scss";
+@import "_donation.scss";
