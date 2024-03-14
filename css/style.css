@@ -2208,24 +2208,24 @@ ol .body-article__item::before {
     padding-left: 0;
   }
 }
-.main-do__subtitle {
+.main-do__subtitle:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.main-do__title {
   font-size: 3.5rem;
 }
-.main-do__subtitle:not(:last-child) {
-  margin-bottom: 0.5714285714em;
+.main-do__title:not(:last-child) {
+  margin-bottom: 0.6071428571em;
 }
 @media (max-width: 32.75em) {
-  .main-do__subtitle {
+  .main-do__title {
     font-size: 3rem;
   }
 }
 @media (max-width: 23.4375em) {
-  .main-do__subtitle {
+  .main-do__title {
     font-size: 2.75rem;
   }
-}
-.main-do__title:not(:last-child) {
-  margin-bottom: 0.7083333333em;
 }
 .main-do__text:not(:last-child) {
   margin-bottom: 0.9375rem;

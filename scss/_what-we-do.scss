@@ -47,22 +47,21 @@
   }
 
   &__subtitle {
+    &:not(:last-child) {
+      margin-bottom: toREM(32);
+    }
+  }
+
+  &__title {
     font-size: toREM(56);
     &:not(:last-child) {
-      margin-bottom: toEM(32, 56);
+      margin-bottom: toEM(34, 56);
     }
-
     @media (max-width: toEM(524)) {
       font-size: toREM(48);
     }
     @media (max-width: toEM(375)) {
       font-size: toREM(44);
-    }
-  }
-
-  &__title {
-    &:not(:last-child) {
-      margin-bottom: toEM(34, 48);
     }
   }
 
